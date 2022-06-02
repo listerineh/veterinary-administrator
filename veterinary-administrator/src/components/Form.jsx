@@ -1,4 +1,13 @@
+import { useState, useEffect } from "react"
+
 function Form() {
+
+  const [petsName, setPetsName] = useState('')
+  const [ownersName, setOwnersName] = useState('')
+  const [email, setEmail] = useState('')
+  const [dischargeDate, setDischargeDate] = useState('')
+  const [symptoms, setSymptoms] = useState('')
+
   return (
     <div className="md:w-1/2 lg:w-2/5">
       <h2 className="font-black text-3xl text-center">
@@ -22,6 +31,8 @@ function Form() {
             type="text" 
             placeholder="Pet's name"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={ petsName }
+            onChange={ (e) => setPetsName(e.target.value) }
           />
         </div>
 
@@ -34,6 +45,8 @@ function Form() {
             type="text" 
             placeholder="Owner's name"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={ ownersName }
+            onChange={ (e) => setOwnersName(e.target.value) }
           />
         </div>
 
@@ -46,6 +59,8 @@ function Form() {
             type="email" 
             placeholder="Contact email"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={ email }
+            onChange={ (e) => setEmail(e.target.value) }
           />
         </div>
 
@@ -57,6 +72,8 @@ function Form() {
             id="discharge-date"
             type="date" 
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={ dischargeDate }
+            onChange={ (e) => setDischargeDate(e.target.value) }
           />
         </div>
 
@@ -68,6 +85,8 @@ function Form() {
             id="symptoms"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             placeholder="Describe the symptoms"
+            value={ symptoms }
+            onChange={ (e) => setSymptoms(e.target.value) }
           />
         </div>
 
