@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import Error from "./error"
 
 
-function Form({ patients, setPatients }) {
+function Form({ patient, patients, setPatient, setPatients }) {
 
   const [petsName, setPetsName] = useState('')
   const [ownersName, setOwnersName] = useState('')
@@ -12,6 +12,16 @@ function Form({ patients, setPatients }) {
   const [symptoms, setSymptoms] = useState('')
 
   const [error, setError] = useState(false)
+
+  useEffect( () => {
+    if(Object.keys(patient).length > 0) {
+      setPetsName(patient.petsName)
+      setOwnersName(patient.ownersName)
+      setEmail(patient.email)
+      setDischargeDate(patient.dischargeDate)
+      setSymptoms(patient.symptoms)
+    }
+  }, [patient])
 
   const generateId = () => {
     const random = Math.random().toString(36).substring(2)
@@ -23,8 +33,6 @@ function Form({ patients, setPatients }) {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    // Form validation
-
     if ( [petsName, ownersName, email, dischargeDate, symptoms].includes('') ) {
       setError(true)
       return
@@ -32,20 +40,28 @@ function Form({ patients, setPatients }) {
     
     setError(false)
 
-    // Create the patients object and add them to the patients list
-
     const newPatient = {
       petsName, 
       ownersName, 
       email, 
       dischargeDate, 
-      symptoms,
-      id: generateId()
+      symptoms
     }
 
-    setPatients([...patients, newPatient])
-    
-    // Empty the data fields
+    if(patient.id) {
+      newPatient.id = patient.id
+
+      const updatedPatients = patients.map( statePatient => 
+          statePatient.id === patient.id ? newPatient : statePatient
+      )
+
+      setPatients(updatedPatients)
+      setPatient({})
+
+    } else {
+      newPatient.id = generateId()
+      setPatients([...patients, newPatient])
+    }
 
     setPetsName('')
     setOwnersName('')
@@ -61,7 +77,7 @@ function Form({ patients, setPatients }) {
       </h2>
 
       <p className="text-lg mt-5 text-center mb-10">
-        Add Patients and {''}
+        Add patients and {''}
         <span className="text-indigo-600 font-bold">
           Administrate them
         </span>
@@ -148,7 +164,7 @@ function Form({ patients, setPatients }) {
         <input 
           type="submit"
           className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-all rounded-lg"
-          value="Add Patient"
+          value={ patient.id ? 'Edit Patient' : 'Add Patient' }
         />
 
       </form>

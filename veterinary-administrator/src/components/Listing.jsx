@@ -1,6 +1,6 @@
 import Patient from "./Patient";
 
-function Listing({ patients }) {
+function Listing({ patients, setPatient, deletePatient }) {
 
   return (
     <div className="md:w-1/2 lg:w-3/5">
@@ -25,6 +25,8 @@ function Listing({ patients }) {
                     <Patient
                       key={ patient.id }
                       patient={ patient }
+                      setPatient={ setPatient }
+                      deletePatient={ deletePatient }
                     />
                   )
                 )
@@ -38,7 +40,7 @@ function Listing({ patients }) {
             </h2>
 
             <p className="text-xl mt-5 mb-7 text-center">
-              Add a Patient and {''}
+              Add a patient and {''}
               <span className="text-indigo-600 font-bold">
                 it will appear here!
               </span>
