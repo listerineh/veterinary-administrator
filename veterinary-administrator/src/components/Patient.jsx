@@ -1,4 +1,4 @@
-function Patient({ patient }) {
+function Patient({ patient, setPatient }) {
 
   const { petsName, ownersName, email, dischargeDate, symptoms } = patient
 
@@ -44,14 +44,15 @@ function Patient({ patient }) {
       >
         <button
           type="button"
-          className="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase rounded-lg cursor-pointer transition-all"
+          className="py-2 px-20 bg-yellow-600 hover:bg-yellow-700 text-white font-bold uppercase rounded-lg cursor-pointer transition-all"
+          onClick={ () => setPatient(patient) }
         >
           Edit
         </button>
         
         <button
           type="button"
-          className="py-2 px-10 bg-red-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg cursor-pointer transition-all"
+          className="py-2 px-20 bg-red-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg cursor-pointer transition-all"
         >
           Delete
         </button>
