@@ -8,8 +8,22 @@ function Form() {
   const [dischargeDate, setDischargeDate] = useState('')
   const [symptoms, setSymptoms] = useState('')
 
+  const [error, setError] = useState(false)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if ( [petsName, ownersName, email, dischargeDate, symptoms].includes('') ) {
+      setError(true)
+      return
+    }
+    
+    setError(false)
+    
+  }
+
   return (
-    <div className="md:w-1/2 lg:w-2/5">
+    <div className="md:w-1/2 lg:w-2/5 mx-5">
       <h2 className="font-black text-3xl text-center">
         Patient Information
       </h2>
@@ -21,7 +35,17 @@ function Form() {
         </span>
       </p>
 
-      <form className="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
+      <form 
+        className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
+        onSubmit={ handleSubmit }
+      >
+        { error && 
+          <div className="bg-red-800 text-white text-center p-3 uppercase font-bold mb-3 rounded-md">
+            <p>
+              Please fill all the fields!
+            </p>
+          </div>
+        }
         <div className="mb-5">
           <label htmlFor="pets-name" className="block text-gray-700 uppercase font-bold">
             Pet's Name
