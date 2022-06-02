@@ -1,6 +1,6 @@
 import Patient from "./Patient";
 
-function Listing({ patients, setPatient }) {
+function Listing({ patients, setPatient, deletePatient }) {
 
   return (
     <div className="md:w-1/2 lg:w-3/5">
@@ -26,6 +26,7 @@ function Listing({ patients, setPatient }) {
                       key={ patient.id }
                       patient={ patient }
                       setPatient={ setPatient }
+                      deletePatient={ deletePatient }
                     />
                   )
                 )
