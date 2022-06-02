@@ -44,7 +44,7 @@ function Patient({ patient, setPatient }) {
       >
         <button
           type="button"
-          className="py-2 px-20 bg-yellow-600 hover:bg-yellow-700 text-white font-bold uppercase rounded-lg cursor-pointer transition-all"
+          className="py-2 lg:px-20 px-10 bg-yellow-600 hover:bg-yellow-700 text-white font-bold uppercase rounded-lg cursor-pointer transition-all"
           onClick={ () => setPatient(patient) }
         >
           Edit
@@ -52,7 +52,7 @@ function Patient({ patient, setPatient }) {
         
         <button
           type="button"
-          className="py-2 px-20 bg-red-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg cursor-pointer transition-all"
+          className="py-2 lg:px-20 px-10 bg-red-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg cursor-pointer transition-all"
         >
           Delete
         </button>
