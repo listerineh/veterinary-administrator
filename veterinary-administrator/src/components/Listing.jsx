@@ -14,7 +14,7 @@ function Listing() {
         </span>
       </p>
 
-      <div className="md:h-screen overflow-y-scroll">
+      <div className="md:h-screen md:overflow-y-scroll">
         <Patient/>
         <Patient/>
         <Patient/>
