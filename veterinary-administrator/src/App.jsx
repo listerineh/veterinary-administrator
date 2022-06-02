@@ -5,11 +5,14 @@ import Listing from './components/Listing'
 function App() {
 
   return (
-    <>
+    <div className="container mx-auto mt-20">
       <Header />
-      <Form />
-      <Listing />
-    </>
+
+      <div className="mt-12 md:flex">
+        <Form />
+        <Listing />
+      </div>
+    </div>
   )
 }
 

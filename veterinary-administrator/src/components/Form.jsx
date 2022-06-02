@@ -1,6 +1,8 @@
 function Form() {
   return (
-    <h2>Form</h2>
+    <div className="w-1/2">
+        <h2>Form</h2>
+    </div>
   )
 }
 
