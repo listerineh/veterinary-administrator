@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react"
 
+import Error from "./error"
+
+
 function Form({ patients, setPatients }) {
 
   const [petsName, setPetsName] = useState('')
@@ -60,12 +63,11 @@ function Form({ patients, setPatients }) {
         className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
         onSubmit={ handleSubmit }
       >
-        { error && 
-          <div className="bg-red-800 text-white text-center p-3 uppercase font-bold mb-3 rounded-md">
-            <p>
-              Please fill all the fields!
-            </p>
-          </div>
+        { 
+          error && 
+          <Error 
+            msg='Please fill all the fields!'
+          /> 
         }
         <div className="mb-5">
           <label htmlFor="pets-name" className="block text-gray-700 uppercase font-bold">
