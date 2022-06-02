@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function Form() {
+function Form({ patients, setPatients }) {
 
   const [petsName, setPetsName] = useState('')
   const [ownersName, setOwnersName] = useState('')
@@ -13,13 +13,34 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
+    // Form validation
+
     if ( [petsName, ownersName, email, dischargeDate, symptoms].includes('') ) {
       setError(true)
       return
     }
     
     setError(false)
+
+    // Create the patients object and add them to the patients list
+
+    const newPatient = {
+      petsName, 
+      ownersName, 
+      email, 
+      dischargeDate, 
+      symptoms
+    }
+
+    setPatients([...patients, newPatient])
     
+    // Empty the data fields
+
+    setPetsName('')
+    setownersName('')
+    setEmail('')
+    setdischargeDate('')
+    setsymptoms('')
   }
 
   return (
