@@ -1,9 +1,11 @@
 function Listing() {
   return (
-      <div className="w-1/2">
-          <h2>Listing</h2>
-      </div>
-  )
+    <div className="md:w-1/2 lg:w-3/5">
+      <h2>
+        Patient Listing
+      </h2>
+    </div>
+  );
 }
 
-export default Listing
+export default Listing;

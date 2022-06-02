@@ -1,9 +1,8 @@
-import Header from './components/Header'
-import Form from './components/Form'
-import Listing from './components/Listing'
+import Header from "./components/Header";
+import Form from "./components/Form";
+import Listing from "./components/Listing";
 
 function App() {
-
   return (
     <div className="container mx-auto mt-20">
       <Header />
@@ -13,7 +12,7 @@ function App() {
         <Listing />
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
