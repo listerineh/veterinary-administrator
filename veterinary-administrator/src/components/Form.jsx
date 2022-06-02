@@ -77,7 +77,7 @@ function Form({ patient, patients, setPatient, setPatients }) {
       </h2>
 
       <p className="text-lg mt-5 text-center mb-10">
-        Add Patients and {''}
+        Add patients and {''}
         <span className="text-indigo-600 font-bold">
           Administrate them
         </span>

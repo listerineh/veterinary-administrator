@@ -40,7 +40,7 @@ function Listing({ patients, setPatient, deletePatient }) {
             </h2>
 
             <p className="text-xl mt-5 mb-7 text-center">
-              Add a Patient and {''}
+              Add a patient and {''}
               <span className="text-indigo-600 font-bold">
                 it will appear here!
               </span>
