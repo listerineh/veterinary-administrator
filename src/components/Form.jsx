@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-import Error from "./error"
+import Error from "./Error"
 
 
 function Form({ patient, patients, setPatient, setPatients }) {
