@@ -8,7 +8,7 @@ function Form() {
       <p className="text-lg mt-5 text-center mb-10">
         Add Patients and {''}
         <span className="text-indigo-600 font-bold">
-          Administrate them
+          Administrate Them
         </span>
       </p>
 
