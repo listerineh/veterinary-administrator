@@ -1,6 +1,61 @@
-function Form() {
+import { useState, useEffect } from "react"
+
+import Error from "./error"
+
+
+function Form({ patients, setPatients }) {
+
+  const [petsName, setPetsName] = useState('')
+  const [ownersName, setOwnersName] = useState('')
+  const [email, setEmail] = useState('')
+  const [dischargeDate, setDischargeDate] = useState('')
+  const [symptoms, setSymptoms] = useState('')
+
+  const [error, setError] = useState(false)
+
+  const generateId = () => {
+    const random = Math.random().toString(36).substring(2)
+    const date = Date.now().toString(36)
+
+    return random + date
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    // Form validation
+
+    if ( [petsName, ownersName, email, dischargeDate, symptoms].includes('') ) {
+      setError(true)
+      return
+    }
+    
+    setError(false)
+
+    // Create the patients object and add them to the patients list
+
+    const newPatient = {
+      petsName, 
+      ownersName, 
+      email, 
+      dischargeDate, 
+      symptoms,
+      id: generateId()
+    }
+
+    setPatients([...patients, newPatient])
+    
+    // Empty the data fields
+
+    setPetsName('')
+    setOwnersName('')
+    setEmail('')
+    setDischargeDate('')
+    setSymptoms('')
+  }
+
   return (
-    <div className="md:w-1/2 lg:w-2/5">
+    <div className="md:w-1/2 lg:w-2/5 mx-5">
       <h2 className="font-black text-3xl text-center">
         Patient Information
       </h2>
@@ -8,11 +63,20 @@ function Form() {
       <p className="text-lg mt-5 text-center mb-10">
         Add Patients and {''}
         <span className="text-indigo-600 font-bold">
-          Administrate Them
+          Administrate them
         </span>
       </p>
 
-      <form className="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
+      <form 
+        className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
+        onSubmit={ handleSubmit }
+      >
+        { 
+          error && 
+          <Error 
+            msg='Please fill all the fields!'
+          /> 
+        }
         <div className="mb-5">
           <label htmlFor="pets-name" className="block text-gray-700 uppercase font-bold">
             Pet's Name
@@ -22,6 +86,8 @@ function Form() {
             type="text" 
             placeholder="Pet's name"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={ petsName }
+            onChange={ (e) => setPetsName(e.target.value) }
           />
         </div>
 
@@ -34,6 +100,8 @@ function Form() {
             type="text" 
             placeholder="Owner's name"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={ ownersName }
+            onChange={ (e) => setOwnersName(e.target.value) }
           />
         </div>
 
@@ -46,6 +114,8 @@ function Form() {
             type="email" 
             placeholder="Contact email"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={ email }
+            onChange={ (e) => setEmail(e.target.value) }
           />
         </div>
 
@@ -57,6 +127,8 @@ function Form() {
             id="discharge-date"
             type="date" 
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={ dischargeDate }
+            onChange={ (e) => setDischargeDate(e.target.value) }
           />
         </div>
 
@@ -68,12 +140,14 @@ function Form() {
             id="symptoms"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             placeholder="Describe the symptoms"
+            value={ symptoms }
+            onChange={ (e) => setSymptoms(e.target.value) }
           />
         </div>
 
         <input 
           type="submit"
-          className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-all"
+          className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-all rounded-lg"
           value="Add Patient"
         />
 
