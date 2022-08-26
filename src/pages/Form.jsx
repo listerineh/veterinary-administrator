@@ -117,7 +117,7 @@ function Form({
           <div className="mb-5">
             <label
               htmlFor="doctors-name"
-              className="block text-gray-700 uppercase font-bold"
+              className="block text-gray-700 uppercase font-light"
             >
               <div className="flex">
                 <FontAwesomeIcon icon={faUserDoctor} className="mt-1 mr-4" />
@@ -141,7 +141,7 @@ function Form({
           <div className="mb-5">
             <label
               htmlFor="owners-name"
-              className="block text-gray-700 uppercase font-bold"
+              className="block text-gray-700 uppercase font-light"
             >
               <div className="flex">
                 <FontAwesomeIcon icon={faUser} className="mt-1 mr-4" />
@@ -163,7 +163,7 @@ function Form({
           <div className="mb-5">
             <label
               htmlFor="pets-name"
-              className="block text-gray-700 uppercase font-bold"
+              className="block text-gray-700 uppercase font-light"
             >
               <div className="flex">
                 <FontAwesomeIcon icon={faPaw} className="mt-1 mr-4" />
@@ -183,7 +183,7 @@ function Form({
           <div className="mb-5">
             <label
               htmlFor="pets-type"
-              className="block text-gray-700 uppercase font-bold"
+              className="block text-gray-700 uppercase font-light"
             >
               <div className="flex">
                 <FontAwesomeIcon icon={faPaw} className="mt-1 mr-4" />
@@ -210,7 +210,7 @@ function Form({
           <div className="mb-5">
             <label
               htmlFor="email"
-              className="block text-gray-700 uppercase font-bold"
+              className="block text-gray-700 uppercase font-light"
             >
               <div className="flex">
                 <FontAwesomeIcon icon={faEnvelope} className="mt-1 mr-4" />
@@ -230,7 +230,7 @@ function Form({
           <div className="mb-5">
             <label
               htmlFor="discharge-date"
-              className="block text-gray-700 uppercase font-bold"
+              className="block text-gray-700 uppercase font-light"
             >
               <div className="flex">
                 <FontAwesomeIcon icon={faCalendar} className="mt-1 mr-4" />
@@ -250,7 +250,7 @@ function Form({
         <div className="mb-5">
           <label
             htmlFor="symptoms"
-            className="block text-gray-700 uppercase font-bold"
+            className="block text-gray-700 uppercase font-light"
           >
             <div className="flex">
               <FontAwesomeIcon icon={faFileMedical} className="mt-1 mr-4" />
