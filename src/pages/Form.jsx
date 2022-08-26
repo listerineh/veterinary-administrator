@@ -10,12 +10,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import Error from "../components/Error";
-import doctors_database from "../data/doctors";
-import pettypes_database from "../data/pet-types";
 
-function Form({ patient, patients, setPatient, setPatients }) {
-  const [doctors, setDoctors] = useState([]);
-  const [petTypes, setPetTypes] = useState([]);
+function Form({
+  patient,
+  patients,
+  doctors,
+  petTypes,
+  setPatient,
+  setPatients,
+}) {
   const [selectedDoctor, setSelectedDoctor] = useState("");
   const [selectedPetType, setSelectedPetType] = useState("");
   const [petsName, setPetsName] = useState("");
@@ -25,11 +28,6 @@ function Form({ patient, patients, setPatient, setPatients }) {
   const [symptoms, setSymptoms] = useState("");
 
   const [error, setError] = useState(false);
-
-  useEffect(() => {
-    setDoctors(doctors_database);
-    setPetTypes(pettypes_database);
-  }, []);
 
   useEffect(() => {
     if (Object.keys(patient).length > 0) {

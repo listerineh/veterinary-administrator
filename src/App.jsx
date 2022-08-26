@@ -5,10 +5,16 @@ import Listing from "./pages/Listing";
 import Layout from "./layout/Layout";
 
 import Home from "./pages/Home";
+import Reports from "./pages/Reports";
+
+import doctors_database from "./data/doctors";
+import pettypes_database from "./data/pet-types";
 
 function App() {
   const [patients, setPatients] = useState([]);
   const [patient, setPatient] = useState({});
+  const [doctors, setDoctors] = useState([]);
+  const [petTypes, setPetTypes] = useState([]);
 
   useEffect(() => {
     const getLocalStorage = () => {
@@ -17,6 +23,11 @@ function App() {
       setPatients(patientsInLocalStorage);
     };
     getLocalStorage();
+  }, []);
+
+  useEffect(() => {
+    setDoctors(doctors_database);
+    setPetTypes(pettypes_database);
   }, []);
 
   useEffect(() => {
@@ -39,6 +50,8 @@ function App() {
               <Form
                 patient={patient}
                 patients={patients}
+                doctors={doctors}
+                petTypes={petTypes}
                 setPatient={setPatient}
                 setPatients={setPatients}
               />
@@ -48,6 +61,16 @@ function App() {
             path="/listing"
             element={
               <Listing patients={patients} deletePatient={deletePatient} />
+            }
+          />
+          <Route
+            path="/reports"
+            element={
+              <Reports
+                patients={patients}
+                doctors={doctors}
+                petTypes={petTypes}
+              />
             }
           />
         </Route>
