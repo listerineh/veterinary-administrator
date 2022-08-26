@@ -8,9 +8,18 @@ import {
   faCircleMinus,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Patient({ patient, setPatient, deletePatient }) {
+import Dog from "../assets/animals/dog.svg";
+import Cat from "../assets/animals/cat.svg";
+import Bird from "../assets/animals/bird.svg";
+import Turtle from "../assets/animals/turtle.svg";
+import Bunny from "../assets/animals/bunny.svg";
+import Hamster from "../assets/animals/hamster.svg";
+import Other from "../assets/animals/other.svg";
+
+function Patient({ patient, deletePatient }) {
   const {
     selectedDoctor,
+    selectedPetType,
     petsName,
     ownersName,
     email,
@@ -28,8 +37,8 @@ function Patient({ patient, setPatient, deletePatient }) {
   };
 
   return (
-    <div className="bg-white shadow-md px-8 py-8 rounded-xl">
-      <div className="flex justify-between">
+    <div className="bg-white shadow-md px-8 py-8 rounded-xl grid grid-flow-col">
+      <div>
         <div className="ml-5">
           <h1 className="font-bold uppercase text-indigo-600 text-3xl mb-2">
             {petsName}
@@ -60,15 +69,37 @@ function Patient({ patient, setPatient, deletePatient }) {
             <p className="font-light">{symptoms}</p>
           </div>
         </div>
-        <div>
-          <button
-            type="button"
-            className="text-red-600 hover:text-red-800 font-bold uppercase rounded-lg cursor-pointer transition-all"
-            onClick={handleDelete}
-          >
-            <FontAwesomeIcon icon={faCircleMinus} className="" />
-          </button>
-        </div>
+      </div>
+      <div className="grid justify-items-center content-center">
+        {selectedPetType === "Dog" ? (
+          <img src={Dog} alt="Dog default img" width={150} height={150} />
+        ) : selectedPetType === "Cat" ? (
+          <img src={Cat} alt="Cat default img" width={150} height={150} />
+        ) : selectedPetType === "Bird" ? (
+          <img src={Bird} alt="Bird default img" width={150} height={150} />
+        ) : selectedPetType === "Turtle" ? (
+          <img src={Turtle} alt="Turtle default img" width={150} height={150} />
+        ) : selectedPetType === "Bunny" ? (
+          <img src={Bunny} alt="Bunny default img" width={150} height={150} />
+        ) : selectedPetType === "Hamster" ? (
+          <img
+            src={Hamster}
+            alt="Hamster default img"
+            width={150}
+            height={150}
+          />
+        ) : (
+          <img src={Other} alt="Other default img" width={150} height={150} />
+        )}
+      </div>
+      <div className="grid justify-items-end content-start">
+        <button
+          type="button"
+          className="text-red-600 hover:text-red-800 font-bold uppercase rounded-lg cursor-pointer transition-all"
+          onClick={handleDelete}
+        >
+          <FontAwesomeIcon icon={faCircleMinus} className="" />
+        </button>
       </div>
     </div>
   );

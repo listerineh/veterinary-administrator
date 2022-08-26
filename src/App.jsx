@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Form from "./components/Form";
-import Listing from "./components/Listing";
+import Form from "./pages/Form";
+import Listing from "./pages/Listing";
 import Layout from "./layout/Layout";
 
 import Home from "./pages/Home";
@@ -20,7 +20,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    //if (patients.length === 0) return;
     localStorage.setItem("patients", JSON.stringify(patients));
   }, [patients]);
 
@@ -48,11 +47,7 @@ function App() {
           <Route
             path="/listing"
             element={
-              <Listing
-                patients={patients}
-                setPatients={setPatients}
-                deletePatient={deletePatient}
-              />
+              <Listing patients={patients} deletePatient={deletePatient} />
             }
           />
         </Route>

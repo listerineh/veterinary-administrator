@@ -1,6 +1,6 @@
-import Patient from "./Patient";
+import Patient from "../components/Patient";
 
-function Listing({ patients, setPatient, deletePatient }) {
+function Listing({ patients, deletePatient }) {
   return (
     <div className="md:mx-32 mx-5">
       {patients && patients.length ? (
@@ -19,7 +19,6 @@ function Listing({ patients, setPatient, deletePatient }) {
               <Patient
                 key={patient.id}
                 patient={patient}
-                setPatient={setPatient}
                 deletePatient={deletePatient}
               />
             ))}

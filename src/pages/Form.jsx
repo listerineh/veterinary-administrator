@@ -1,11 +1,23 @@
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUserDoctor,
+  faPaw,
+  faUser,
+  faEnvelope,
+  faCalendar,
+  faFileMedical,
+} from "@fortawesome/free-solid-svg-icons";
 
-import Error from "./Error";
+import Error from "../components/Error";
 import doctors_database from "../data/doctors";
+import pettypes_database from "../data/pet-types";
 
 function Form({ patient, patients, setPatient, setPatients }) {
   const [doctors, setDoctors] = useState([]);
+  const [petTypes, setPetTypes] = useState([]);
   const [selectedDoctor, setSelectedDoctor] = useState("");
+  const [selectedPetType, setSelectedPetType] = useState("");
   const [petsName, setPetsName] = useState("");
   const [ownersName, setOwnersName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,10 +28,13 @@ function Form({ patient, patients, setPatient, setPatients }) {
 
   useEffect(() => {
     setDoctors(doctors_database);
+    setPetTypes(pettypes_database);
   }, []);
 
   useEffect(() => {
     if (Object.keys(patient).length > 0) {
+      setSelectedDoctor(patient.selectedDoctor);
+      setSelectedPetType(patient.selectedPetType);
       setPetsName(patient.petsName);
       setOwnersName(patient.ownersName);
       setEmail(patient.email);
@@ -41,6 +56,7 @@ function Form({ patient, patients, setPatient, setPatients }) {
     if (
       [
         selectedDoctor,
+        selectedPetType,
         petsName,
         ownersName,
         email,
@@ -56,6 +72,7 @@ function Form({ patient, patients, setPatient, setPatients }) {
 
     const newPatient = {
       selectedDoctor,
+      selectedPetType,
       petsName,
       ownersName,
       email,
@@ -78,6 +95,7 @@ function Form({ patient, patients, setPatient, setPatients }) {
     }
 
     setSelectedDoctor("");
+    setSelectedPetType("");
     setPetsName("");
     setOwnersName("");
     setEmail("");
@@ -87,66 +105,50 @@ function Form({ patient, patients, setPatient, setPatients }) {
 
   return (
     <div className="md:mx-32 mx-5 pb-0.5">
-      <h2 className="font-black text-4xl text-center mt-10">
-        Patient Information
+      <h2 className="font-black text-4xl text-center my-10">
+        Add <span className="text-indigo-600">patient</span> Information
       </h2>
-
-      <p className="text-lg mt-5 text-center mb-10">
-        Add patients and {""}
-        <span className="text-indigo-600 font-bold">Administrate them</span>
-      </p>
 
       <form
         className="bg-white shadow-md rounded-lg py-12 px-12 mb-10"
         onSubmit={handleSubmit}
       >
         {error && <Error msg="Please fill all the fields!" />}
-        <div className="mb-5">
-          <label
-            htmlFor="doctors-name"
-            className="block text-gray-700 uppercase font-bold"
-          >
-            Doctor's Name
-          </label>
-          <select
-            id="doctors-name"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-            onChange={(e) => setSelectedDoctor(e.target.value)}
-            value={selectedDoctor}
-          >
-            <option value="">Select</option>
-            {doctors.map((doctor, index) => (
-              <option key={index} value={doctor}>
-                {doctor}
-              </option>
-            ))}
-          </select>
-        </div>
 
         <div className="md:grid md:grid-cols-2 md:gap-4 block">
           <div className="mb-5">
             <label
-              htmlFor="pets-name"
+              htmlFor="doctors-name"
               className="block text-gray-700 uppercase font-bold"
             >
-              Pet's Name
+              <div className="flex">
+                <FontAwesomeIcon icon={faUserDoctor} className="mt-1 mr-4" />
+                <p>Doctor's Name</p>
+              </div>
             </label>
-            <input
-              id="pets-name"
-              type="text"
-              placeholder="Pet's name"
+            <select
+              id="doctors-name"
               className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-              value={petsName}
-              onChange={(e) => setPetsName(e.target.value)}
-            />
+              onChange={(e) => setSelectedDoctor(e.target.value)}
+              value={selectedDoctor}
+            >
+              <option value="">Select</option>
+              {doctors.map((doctor, index) => (
+                <option key={index} value={doctor}>
+                  {doctor}
+                </option>
+              ))}
+            </select>
           </div>
-
           <div className="mb-5">
             <label
               htmlFor="owners-name"
               className="block text-gray-700 uppercase font-bold"
             >
-              Owner's Name
+              <div className="flex">
+                <FontAwesomeIcon icon={faUser} className="mt-1 mr-4" />
+                <p>Owner's Name</p>
+              </div>
             </label>
             <input
               id="owners-name"
@@ -162,10 +164,60 @@ function Form({ patient, patients, setPatient, setPatients }) {
         <div className="md:grid md:grid-cols-2 md:gap-4 block">
           <div className="mb-5">
             <label
+              htmlFor="pets-name"
+              className="block text-gray-700 uppercase font-bold"
+            >
+              <div className="flex">
+                <FontAwesomeIcon icon={faPaw} className="mt-1 mr-4" />
+                <p>Pet's Name</p>
+              </div>
+            </label>
+            <input
+              id="pets-name"
+              type="text"
+              placeholder="Pet's name"
+              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+              value={petsName}
+              onChange={(e) => setPetsName(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-5">
+            <label
+              htmlFor="pets-type"
+              className="block text-gray-700 uppercase font-bold"
+            >
+              <div className="flex">
+                <FontAwesomeIcon icon={faPaw} className="mt-1 mr-4" />
+                <p>Pet's Type</p>
+              </div>
+            </label>
+            <select
+              id="pets-type"
+              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+              onChange={(e) => setSelectedPetType(e.target.value)}
+              value={selectedPetType}
+            >
+              <option value="">Select</option>
+              {petTypes.map((type, index) => (
+                <option key={index} value={type}>
+                  {type}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="md:grid md:grid-cols-2 md:gap-4 block">
+          <div className="mb-5">
+            <label
               htmlFor="email"
               className="block text-gray-700 uppercase font-bold"
             >
-              Email
+              <div className="flex">
+                <FontAwesomeIcon icon={faEnvelope} className="mt-1 mr-4" />
+                <p>Email</p>
+              </div>
             </label>
             <input
               id="email"
@@ -182,7 +234,10 @@ function Form({ patient, patients, setPatient, setPatients }) {
               htmlFor="discharge-date"
               className="block text-gray-700 uppercase font-bold"
             >
-              Discharge date
+              <div className="flex">
+                <FontAwesomeIcon icon={faCalendar} className="mt-1 mr-4" />
+                <p>Discharge date</p>
+              </div>
             </label>
             <input
               id="discharge-date"
@@ -199,7 +254,10 @@ function Form({ patient, patients, setPatient, setPatients }) {
             htmlFor="symptoms"
             className="block text-gray-700 uppercase font-bold"
           >
-            Symptoms
+            <div className="flex">
+              <FontAwesomeIcon icon={faFileMedical} className="mt-1 mr-4" />
+              <p>Symptoms</p>
+            </div>
           </label>
           <textarea
             id="symptoms"
