@@ -86,7 +86,7 @@ function Form({ patient, patients, setPatient, setPatients }) {
   };
 
   return (
-    <div className="md:mx-32 mx-5">
+    <div className="md:mx-32 mx-5 pb-0.5">
       <h2 className="font-black text-4xl text-center mt-10">
         Patient Information
       </h2>
