@@ -1,72 +1,71 @@
 function Patient({ patient, setPatient, deletePatient }) {
-
-  const { petsName, ownersName, email, dischargeDate, symptoms, id } = patient
+  const {
+    selectedDoctor,
+    petsName,
+    ownersName,
+    email,
+    dischargeDate,
+    symptoms,
+    id,
+  } = patient;
 
   const handleDelete = () => {
-    const response = confirm('Are you sure you want to delete this patient?')
+    const response = confirm("Are you sure you want to delete this patient?");
 
-    if (response){
-      deletePatient(id)
+    if (response) {
+      deletePatient(id);
     }
-  }
+  };
 
   return (
     <div className="m-3 bg-white shadow-md px-5 py-10 rounded-xl">
       <p className="font-bold mb-3 text-gray-700 uppercase">
+        Doctor's Name: {""}
+        <span className="font-normal normal-case">{selectedDoctor}</span>
+      </p>
+
+      <p className="font-bold mb-3 text-gray-700 uppercase">
         Pet's Name: {""}
-        <span className="font-normal normal-case">
-            { petsName }
-        </span>
+        <span className="font-normal normal-case">{petsName}</span>
       </p>
 
       <p className="font-bold mb-3 text-gray-700 uppercase">
         Owner's Name: {""}
-        <span className="font-normal normal-case">
-            { ownersName }
-        </span>
+        <span className="font-normal normal-case">{ownersName}</span>
       </p>
 
       <p className="font-bold mb-3 text-gray-700 uppercase">
         Email: {""}
-        <span className="font-normal normal-case">
-            { email }
-        </span>
+        <span className="font-normal normal-case">{email}</span>
       </p>
 
       <p className="font-bold mb-3 text-gray-700 uppercase">
         Discharge date: {""}
-        <span className="font-normal normal-case">
-            { dischargeDate }
-        </span>
+        <span className="font-normal normal-case">{dischargeDate}</span>
       </p>
 
       <p className="font-bold mb-3 text-gray-700 uppercase">
         Symptoms: {""}
-        <span className="font-normal normal-case">
-            { symptoms }
-        </span>
+        <span className="font-normal normal-case">{symptoms}</span>
       </p>
 
-      <div
-        className="flex justify-between mt-10 "
-      >
+      <div className="flex justify-between mt-10 ">
         <button
           type="button"
           className="py-2 lg:px-20 px-10 bg-yellow-600 hover:bg-yellow-700 text-white font-bold uppercase rounded-lg cursor-pointer transition-all"
-          onClick={ () => setPatient(patient) }
+          onClick={() => setPatient(patient)}
         >
           Edit
         </button>
-        
+
         <button
           type="button"
           className="py-2 lg:px-20 px-10 bg-red-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg cursor-pointer transition-all"
-          onClick={ handleDelete }
+          onClick={handleDelete}
         >
           Delete
         </button>
       </div>
-
     </div>
   );
 }
