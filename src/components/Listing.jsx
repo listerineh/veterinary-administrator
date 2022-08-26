@@ -14,7 +14,7 @@ function Listing({ patients, setPatient, deletePatient }) {
             <span className="text-indigo-600 font-bold">Patients</span>
           </p>
 
-          <div>
+          <div className="grid grid-row-auto gap-4 mb-10">
             {patients.map((patient) => (
               <Patient
                 key={patient.id}
@@ -26,7 +26,7 @@ function Listing({ patients, setPatient, deletePatient }) {
           </div>
         </>
       ) : (
-        <>
+        <div className="grid content-center justify-items-center h-screen ">
           <h2 className="font-black text-3xl text-center">
             There are no Patients :(
           </h2>
@@ -37,7 +37,7 @@ function Listing({ patients, setPatient, deletePatient }) {
               it will appear here!
             </span>
           </p>
-        </>
+        </div>
       )}
     </div>
   );
