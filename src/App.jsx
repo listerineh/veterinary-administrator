@@ -9,6 +9,7 @@ import Reports from "./pages/Reports";
 
 import doctors_database from "./data/doctors";
 import pettypes_database from "./data/pet-types";
+import Error404 from "./pages/Error404";
 
 function App() {
   const [patients, setPatients] = useState([]);
@@ -74,6 +75,7 @@ function App() {
             }
           />
         </Route>
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   );
