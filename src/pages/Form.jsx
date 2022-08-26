@@ -102,13 +102,13 @@ function Form({
   };
 
   return (
-    <div className="md:mx-32 mx-5 pb-0.5 bg-white dark:bg-gray-900 ">
+    <div className="md:mx-32 mx-5 pb-0.5">
       <h2 className="font-black text-4xl text-center my-10 text-black dark:text-white">
         Add <span className="text-indigo-600">patient</span> Information
       </h2>
 
       <form
-        className="shadow-md rounded-lg py-12 px-12 mb-10"
+        className="shadow-md rounded-lg py-12 px-12 mb-10 bg-white dark:bg-gray-900"
         onSubmit={handleSubmit}
       >
         {error && <Error msg="Please fill all the fields!" />}
