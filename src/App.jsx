@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (patients.length === 0) return;
+    //if (patients.length === 0) return;
     localStorage.setItem("patients", JSON.stringify(patients));
   }, [patients]);
 
