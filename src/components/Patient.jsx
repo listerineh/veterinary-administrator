@@ -37,7 +37,7 @@ function Patient({ patient, deletePatient }) {
   };
 
   return (
-    <div className="bg-white shadow-md px-8 py-8 rounded-xl grid md:grid-flow-col grid-flow-row gap-3">
+    <div className="bg-white dark:bg-gray-900 shadow-md px-8 py-8 rounded-xl grid md:grid-flow-col grid-flow-row gap-3 text-black dark:text-white">
       <div>
         <div className="ml-5">
           <h1 className="font-bold uppercase text-indigo-600 text-3xl mb-2">

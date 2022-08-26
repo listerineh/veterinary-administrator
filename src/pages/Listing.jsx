@@ -5,7 +5,7 @@ function Listing({ patients, deletePatient }) {
     <div className="md:mx-32 mx-5 pb-0.5">
       {patients && patients.length ? (
         <>
-          <h2 className="font-black text-4xl text-center my-10">
+          <h2 className="font-black text-4xl text-center my-10 text-black dark:text-white">
             Patient Listing
           </h2>
 
@@ -20,12 +20,12 @@ function Listing({ patients, deletePatient }) {
           </div>
         </>
       ) : (
-        <div className="grid content-center justify-items-center h-screen ">
-          <h2 className="font-black text-3xl text-center">
+        <div className="grid content-center justify-items-center h-screen">
+          <h2 className="font-black text-3xl text-center text-black dark:text-white">
             There are no Patients :(
           </h2>
 
-          <p className="text-xl mt-5 mb-7 text-center">
+          <p className="text-xl mt-5 mb-7 text-center text-black dark:text-white">
             Add a patient and {""}
             <span className="text-indigo-600 font-bold">
               it will appear here!

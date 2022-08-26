@@ -103,12 +103,12 @@ function Form({
 
   return (
     <div className="md:mx-32 mx-5 pb-0.5">
-      <h2 className="font-black text-4xl text-center my-10">
+      <h2 className="font-black text-4xl text-center my-10 text-black dark:text-white">
         Add <span className="text-indigo-600">patient</span> Information
       </h2>
 
       <form
-        className="bg-white shadow-md rounded-lg py-12 px-12 mb-10"
+        className="bg-white dark:bg-gray-900 shadow-md rounded-lg py-12 px-12 mb-10"
         onSubmit={handleSubmit}
       >
         {error && <Error msg="Please fill all the fields!" />}
@@ -117,7 +117,7 @@ function Form({
           <div className="mb-5">
             <label
               htmlFor="doctors-name"
-              className="block text-gray-700 uppercase font-light"
+              className="block text-gray-700 dark:text-gray-100 uppercase font-light"
             >
               <div className="flex">
                 <FontAwesomeIcon icon={faUserDoctor} className="mt-1 mr-4" />
@@ -126,7 +126,7 @@ function Form({
             </label>
             <select
               id="doctors-name"
-              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md bg-white dark:bg-black text-black dark:text-white border-gray-200 dark:border-gray-700"
               onChange={(e) => setSelectedDoctor(e.target.value)}
               value={selectedDoctor}
             >
@@ -141,7 +141,7 @@ function Form({
           <div className="mb-5">
             <label
               htmlFor="owners-name"
-              className="block text-gray-700 uppercase font-light"
+              className="block text-gray-700 dark:text-gray-100 uppercase font-light"
             >
               <div className="flex">
                 <FontAwesomeIcon icon={faUser} className="mt-1 mr-4" />
@@ -152,7 +152,7 @@ function Form({
               id="owners-name"
               type="text"
               placeholder="Owner's name"
-              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md bg-white dark:bg-black text-black dark:text-white border-gray-200 dark:border-gray-700"
               value={ownersName}
               onChange={(e) => setOwnersName(e.target.value)}
             />
@@ -163,7 +163,7 @@ function Form({
           <div className="mb-5">
             <label
               htmlFor="pets-name"
-              className="block text-gray-700 uppercase font-light"
+              className="block text-gray-700 dark:text-gray-100 uppercase font-light"
             >
               <div className="flex">
                 <FontAwesomeIcon icon={faPaw} className="mt-1 mr-4" />
@@ -174,7 +174,7 @@ function Form({
               id="pets-name"
               type="text"
               placeholder="Pet's name"
-              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md bg-white dark:bg-black text-black dark:text-white border-gray-200 dark:border-gray-700"
               value={petsName}
               onChange={(e) => setPetsName(e.target.value)}
             />
@@ -183,7 +183,7 @@ function Form({
           <div className="mb-5">
             <label
               htmlFor="pets-type"
-              className="block text-gray-700 uppercase font-light"
+              className="block text-gray-700 dark:text-gray-100 uppercase font-light"
             >
               <div className="flex">
                 <FontAwesomeIcon icon={faPaw} className="mt-1 mr-4" />
@@ -192,7 +192,7 @@ function Form({
             </label>
             <select
               id="pets-type"
-              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md bg-white dark:bg-black text-black dark:text-white border-gray-200 dark:border-gray-700"
               onChange={(e) => setSelectedPetType(e.target.value)}
               value={selectedPetType}
             >
@@ -210,7 +210,7 @@ function Form({
           <div className="mb-5">
             <label
               htmlFor="email"
-              className="block text-gray-700 uppercase font-light"
+              className="block text-gray-700 dark:text-gray-100 uppercase font-light"
             >
               <div className="flex">
                 <FontAwesomeIcon icon={faEnvelope} className="mt-1 mr-4" />
@@ -221,7 +221,7 @@ function Form({
               id="email"
               type="email"
               placeholder="Contact email"
-              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md bg-white dark:bg-black text-black dark:text-white border-gray-200 dark:border-gray-700"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -230,7 +230,7 @@ function Form({
           <div className="mb-5">
             <label
               htmlFor="discharge-date"
-              className="block text-gray-700 uppercase font-light"
+              className="block text-gray-700 dark:text-gray-100 uppercase font-light"
             >
               <div className="flex">
                 <FontAwesomeIcon icon={faCalendar} className="mt-1 mr-4" />
@@ -240,7 +240,7 @@ function Form({
             <input
               id="discharge-date"
               type="date"
-              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md bg-white dark:bg-black text-black dark:text-white border-gray-200 dark:border-gray-700"
               value={dischargeDate}
               onChange={(e) => setDischargeDate(e.target.value)}
             />
@@ -250,7 +250,7 @@ function Form({
         <div className="mb-5">
           <label
             htmlFor="symptoms"
-            className="block text-gray-700 uppercase font-light"
+            className="block text-gray-700 dark:text-gray-100 uppercase font-light"
           >
             <div className="flex">
               <FontAwesomeIcon icon={faFileMedical} className="mt-1 mr-4" />
@@ -259,7 +259,7 @@ function Form({
           </label>
           <textarea
             id="symptoms"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md bg-white dark:bg-black text-black dark:text-white border-gray-200 dark:border-gray-700"
             placeholder="Describe the symptoms"
             value={symptoms}
             onChange={(e) => setSymptoms(e.target.value)}
