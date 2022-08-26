@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-
-import Header from "./components/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Form from "./components/Form";
 import Listing from "./components/Listing";
+import Layout from "./layout/Layout";
+
+import Home from "./pages/Home";
 
 function App() {
   const [patients, setPatients] = useState([]);
@@ -28,23 +30,34 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto mt-20">
-      <Header />
-
-      <div className="mt-12 md:flex">
-        <Form
-          patient={patient}
-          patients={patients}
-          setPatient={setPatient}
-          setPatients={setPatients}
-        />
-        <Listing
-          patients={patients}
-          setPatient={setPatient}
-          deletePatient={deletePatient}
-        />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="/registration"
+            element={
+              <Form
+                patient={patient}
+                patients={patients}
+                setPatient={setPatient}
+                setPatients={setPatients}
+              />
+            }
+          />
+          <Route
+            path="/listing"
+            element={
+              <Listing
+                patients={patients}
+                setPatients={setPatients}
+                deletePatient={deletePatient}
+              />
+            }
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

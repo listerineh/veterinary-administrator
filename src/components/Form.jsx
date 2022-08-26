@@ -86,8 +86,10 @@ function Form({ patient, patients, setPatient, setPatients }) {
   };
 
   return (
-    <div className="md:w-1/2 lg:w-2/5 mx-5">
-      <h2 className="font-black text-3xl text-center">Patient Information</h2>
+    <div className="md:mx-32 mx-5">
+      <h2 className="font-black text-4xl text-center mt-10">
+        Patient Information
+      </h2>
 
       <p className="text-lg mt-5 text-center mb-10">
         Add patients and {""}
@@ -95,7 +97,7 @@ function Form({ patient, patients, setPatient, setPatients }) {
       </p>
 
       <form
-        className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
+        className="bg-white shadow-md rounded-lg py-12 px-12 mb-10"
         onSubmit={handleSubmit}
       >
         {error && <Error msg="Please fill all the fields!" />}
@@ -119,71 +121,76 @@ function Form({ patient, patients, setPatient, setPatients }) {
             ))}
           </select>
         </div>
-        <div className="mb-5">
-          <label
-            htmlFor="pets-name"
-            className="block text-gray-700 uppercase font-bold"
-          >
-            Pet's Name
-          </label>
-          <input
-            id="pets-name"
-            type="text"
-            placeholder="Pet's name"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-            value={petsName}
-            onChange={(e) => setPetsName(e.target.value)}
-          />
+
+        <div className="md:grid md:grid-cols-2 md:gap-4 block">
+          <div className="mb-5">
+            <label
+              htmlFor="pets-name"
+              className="block text-gray-700 uppercase font-bold"
+            >
+              Pet's Name
+            </label>
+            <input
+              id="pets-name"
+              type="text"
+              placeholder="Pet's name"
+              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+              value={petsName}
+              onChange={(e) => setPetsName(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-5">
+            <label
+              htmlFor="owners-name"
+              className="block text-gray-700 uppercase font-bold"
+            >
+              Owner's Name
+            </label>
+            <input
+              id="owners-name"
+              type="text"
+              placeholder="Owner's name"
+              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+              value={ownersName}
+              onChange={(e) => setOwnersName(e.target.value)}
+            />
+          </div>
         </div>
 
-        <div className="mb-5">
-          <label
-            htmlFor="owners-name"
-            className="block text-gray-700 uppercase font-bold"
-          >
-            Owner's Name
-          </label>
-          <input
-            id="owners-name"
-            type="text"
-            placeholder="Owner's name"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-            value={ownersName}
-            onChange={(e) => setOwnersName(e.target.value)}
-          />
-        </div>
+        <div className="md:grid md:grid-cols-2 md:gap-4 block">
+          <div className="mb-5">
+            <label
+              htmlFor="email"
+              className="block text-gray-700 uppercase font-bold"
+            >
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Contact email"
+              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
 
-        <div className="mb-5">
-          <label
-            htmlFor="email"
-            className="block text-gray-700 uppercase font-bold"
-          >
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="Contact email"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-
-        <div className="mb-5">
-          <label
-            htmlFor="discharge-date"
-            className="block text-gray-700 uppercase font-bold"
-          >
-            Discharge date
-          </label>
-          <input
-            id="discharge-date"
-            type="date"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-            value={dischargeDate}
-            onChange={(e) => setDischargeDate(e.target.value)}
-          />
+          <div className="mb-5">
+            <label
+              htmlFor="discharge-date"
+              className="block text-gray-700 uppercase font-bold"
+            >
+              Discharge date
+            </label>
+            <input
+              id="discharge-date"
+              type="date"
+              className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+              value={dischargeDate}
+              onChange={(e) => setDischargeDate(e.target.value)}
+            />
+          </div>
         </div>
 
         <div className="mb-5">
