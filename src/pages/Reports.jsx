@@ -64,7 +64,7 @@ const Reports = ({ patients, doctors, petTypes }) => {
                 <div className="font-bold mb-2">
                   Patients filtered by doctors:
                 </div>
-                <div className="grid grid-flow-row gap-4">
+                <div className="grid grid-flow-row gap-4 mb-5">
                   {getSelectedDoctors().map((doctor) => (
                     <div className="bg-white shadow-md rounded-lg py-10 px-10">
                       <div className="text-xl text-indigo-600 ">
@@ -90,7 +90,7 @@ const Reports = ({ patients, doctors, petTypes }) => {
                 <div className="font-bold mb-2">
                   Patients filtered by pet type:
                 </div>
-                <div className="grid grid-flow-row gap-4">
+                <div className="grid grid-flow-row gap-4 mb-5">
                   {getSelectedPetTypes().map((type) => (
                     <div className="bg-white shadow-md rounded-lg py-10 px-10">
                       <div className="text-xl text-indigo-600 ">{type}</div>
@@ -111,7 +111,7 @@ const Reports = ({ patients, doctors, petTypes }) => {
           </div>
         </>
       ) : (
-        <div className="grid content-center justify-items-center h-screen ">
+        <div className="grid content-center justify-items-center h-screen">
           <h2 className="font-black text-3xl text-center">
             There are no Patients :(
           </h2>
