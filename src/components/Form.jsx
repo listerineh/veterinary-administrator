@@ -112,6 +112,7 @@ function Form({ patient, patients, setPatient, setPatients }) {
             id="doctors-name"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             onChange={(e) => setSelectedDoctor(e.target.value)}
+            value={selectedDoctor}
           >
             <option value="">Select</option>
             {doctors.map((doctor, index) => (
